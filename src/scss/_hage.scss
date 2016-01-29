@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+.hage {
+    width: 100px;
+    height: 100px;
+    background-color: #ccc;
+    &__body {
+        width: 70px;
+        height: 70px;
+        margin: 0 auto;
+        background-color: #fff;
+        transform: translate(10px,0);
+    }
+}
