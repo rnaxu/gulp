@@ -1,19 +1,26 @@
-.hoge {
-  color: red;
+.hoge
+{
+    color: red;
 }
 
-.hage {
-  width: 100px;
-  height: 100px;
-  background-color: #ccc;
+.hage
+{
+    width: 100px;
+    height: 100px;
+
+    background-color: #ccc;
 }
 
-.hage__body {
-  width: 70px;
-  height: 70px;
-  margin: 0 auto;
-  background-color: #fff;
-  transform: translate(10px, 0);
+.hage__body
+{
+    width: 70px;
+    height: 70px;
+    margin: 0 auto;
+
+    -webkit-transform: translate(10px, 0);
+            transform: translate(10px, 0);
+
+    background-color: #fff;
 }
 
 /*
@@ -76,22 +83,30 @@ The `sprites` mixin generates identical output to the CSS template
 
 @include sprites($spritesheet-sprites);
 */
-.icon {
-  display: flex;
-  align-items: center;
+.icon
+{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display:         flex;
+
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center;
 }
 
-.icon:before {
-  display: inline-block;
-  content: "";
+.icon:before
+{
+    display: inline-block;
+
+    content: '';
 }
 
-.icon--yen:before {
-  background-image: url(../img/sprite.png);
-  background-position: -80px -28px;
-  width: 12px;
-  height: 12px;
-  background-size: 108px 55px;
-}
+.icon--yen:before
+{
+    width: 12px;
+    height: 12px;
 
-/*# sourceMappingURL=common.css.map */
+    background-image: url(../img/sprite.png);
+    background-position: -80px -28px;
+    background-size: 108px 55px;
+}

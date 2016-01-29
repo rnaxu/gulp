@@ -1,4 +1,6 @@
 var gulp = require('gulp');
+var plumber = require('gulp-plumber');
+var notify = require('gulp-notify');
 var gulpSequence = require('gulp-sequence');
 var rename = require("gulp-rename");
 var sourcemaps = require('gulp-sourcemaps');
@@ -13,7 +15,6 @@ var path = {
   hbs_src: 'src/hbs/',
   scss_src: 'src/scss/',
   js_src: 'src/js/',
-  img_src: 'src/img/',
   sprite_src: 'src/sprite/'
 };
 
@@ -45,30 +46,30 @@ gulp.task('load', function(cb) {
 });
 
 gulp.task('assemble', ['load'], function() {
-  return app.toStream('pages')
-    .pipe(app.renderFile())
-    .pipe(rename({
-        extname: '.html'
-    }))
-    .pipe(app.dest(path.dist));
+    return app.toStream('pages')
+        .pipe(app.renderFile())
+        .pipe(rename({
+            extname: '.html'
+        }))
+        .pipe(app.dest(path.dist));
 });
 
 // prettify
 gulp.task('prettify', function() {
-  gulp.src(path.dist + '**/*.html')
-    .pipe(prettify({
-        indent_size: 4
-    }))
-    .pipe(gulp.dest(path.dist));
+    return gulp.src(path.dist + '**/*.html')
+        .pipe(prettify({
+            indent_size: 4
+        }))
+        .pipe(gulp.dest(path.dist));
 });
 
 // htmlmin
 gulp.task('htmlmin', function() {
-  return gulp.src(path.dist + '**/*.html')
-    .pipe(htmlmin({
-        collapseWhitespace: true
-    }))
-    .pipe(gulp.dest(path.dist));
+    return gulp.src(path.dist + '**/*.html')
+        .pipe(htmlmin({
+            collapseWhitespace: true
+        }))
+        .pipe(gulp.dest(path.dist));
 });
 
 
@@ -94,40 +95,65 @@ gulp.task('sprite', function () {
 });
 
 // sass
-gulp.task('sass', function() {
+gulp.task('sass', function(cb) {
     gulp.src(path.scss_src + '**/*.scss')
+        .pipe(plumber({
+            errorHandler: notify.onError('<%= error.message %>')
+        }))
         .pipe(sourcemaps.init())
         .pipe(sass({
             outputStyle: 'expanded'
         }))
         .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest(path.dist + 'css/'));
+        .pipe(gulp.dest(path.dist + 'css/'))
+        .on('end', function() {
+            cb();
+        });
+
 });
 
 // autoprefixer
-gulp.task('autoprefixer', function() {
+gulp.task('autoprefixer', function(cb) {
     gulp.src(path.dist + 'css/*.css')
+        .pipe(plumber({
+            errorHandler: notify.onError('<%= error.message %>')
+        }))
         .pipe(autoprefixer({
             browsers: ['iOS >= 7','Android >= 4.1']
         }))
-        .pipe(gulp.dest(path.dist + 'css/'));
+        .pipe(gulp.dest(path.dist + 'css/'))
+        .on('end', function() {
+            cb();
+        });
 });
 
 // csscomb
-gulp.task('csscomb', function() {
+gulp.task('csscomb', function(cb) {
     gulp.src(path.dist + 'css/*.css')
+        .pipe(plumber({
+            errorHandler: notify.onError('<%= error.message %>')
+        }))
         .pipe(csscomb())
-        .pipe(gulp.dest(path.dist + 'css/'));
+        .pipe(gulp.dest(path.dist + 'css/'))
+        .on('end', function() {
+            cb();
+        });
 });
 
 // csso
-gulp.task('csso', function() {
+gulp.task('csso', function(cb) {
     gulp.src([path.dist + 'css/*.css', '!' + path.dist + 'css/*.min.css'])
+        .pipe(plumber({
+            errorHandler: notify.onError('<%= error.message %>')
+        }))
         .pipe(csso())
         .pipe(rename({
             extname: '.min.css'
         }))
-        .pipe(gulp.dest(path.dist + 'css/'));
+        .pipe(gulp.dest(path.dist + 'css/'))
+        .on('end', function() {
+            cb();
+        });
 });
 
 
@@ -140,6 +166,9 @@ var uglify = require('gulp-uglify');
 // concat
 gulp.task('concat', function() {
     return gulp.src([path.js_src + 'sample01.js', path.js_src + 'sample02.js'])
+        .pipe(plumber({
+            errorHandler: notify.onError('<%= error.message %>')
+        }))
         .pipe(sourcemaps.init())
         .pipe(concat('common.js'))
         .pipe(sourcemaps.write('./'))
@@ -149,6 +178,9 @@ gulp.task('concat', function() {
 // uglify
 gulp.task('uglify', function() {
     return gulp.src([path.dist + 'js/*.js', '!' + path.dist + 'js/*.min.js'])
+        .pipe(plumber({
+            errorHandler: notify.onError('<%= error.message %>')
+        }))
         .pipe(uglify())
         .pipe(rename({
             extname: '.min.js'
@@ -187,7 +219,7 @@ gulp.task('build:html', function () {
 
 // build:css
 gulp.task('build:css', function () {
-    gulpSequence('sprite', 'sass', 'autoprefixer', 'csscomb', 'csso')();
+    gulpSequence('sass', 'autoprefixer', 'csscomb', 'csso')();
     gulp.src(path.scss_src + '**/*.scss')
         .pipe(reload({stream: true}));
 });
