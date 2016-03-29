@@ -1,5 +1,16 @@
 @charset "utf-8";
-@import "sprite";
+
+/*doc
+
+---
+title: _r-sprite.scss
+name: r-sprite
+category: setting
+---
+
+CSSスプライト用mixin
+
+*/
 
 @mixin r-sprite-width($sprite) {
     width: nth($sprite, 5)/2;

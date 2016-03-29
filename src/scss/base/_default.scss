@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+/*doc
+
+---
+title: _default.scss
+name: default
+category: base
+---
+
+このプロジェクトのデフォルトのスタイルを定義
+
+*/
+
+body {
+  font-family: $font-family-default;
+}
+
+img {
+  vertical-align: bottom;
+}
+
+a {
+  color: $color-link;
+}

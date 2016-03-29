@@ -1,5 +1,29 @@
-@charset "UTF-8";
-@import "hoge";
-@import "hage";
-@import "icon";
+@charset "utf-8";
 
+/*
+ * setting - 変数宣言、mixinなど
+ */
+@import "setting/color";
+@import "setting/font";
+@import "setting/sprite";
+@import "setting/r-sprite";
+
+/*
+ * base - リセット・デフォルトスタイル定義
+ */
+@import "base/reset";
+@import "base/default";
+
+/*
+ * block - BEMのBlock
+ */
+@import "block/hage";
+@import "block/hoge";
+@import "block/icon";
+
+/*
+ * utility - helperなど
+ */
+@import "utility/mg";
+@import "utility/pd";
+@import "utility/txt";

@@ -1,0 +1,26 @@
+@charset "utf-8";
+
+/* スタイルガイド用CSS */
+
+.sg-headline {
+  background-color: #eee;
+  line-height: 100px;
+  height: 100px;
+  color: #444;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.sg-page {
+  width: 960px;
+  /*background-color: #ccc;*/
+  margin: 0 auto;
+}
+
+.sg-category {
+  display: flex;
+}
+.sg-category__item {
+  margin-right: 8px;
+}

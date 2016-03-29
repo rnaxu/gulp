@@ -1,0 +1,409 @@
+@charset 'UTF-8';
+/*
+ * setting - 変数宣言
+ */
+/**
+ * base - リセット・デフォルトスタイル定義
+ */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video
+{
+    font: inherit;
+    font-size: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    vertical-align: baseline;
+
+    border: 0;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section
+{
+    display: block;
+}
+
+ol,
+ul
+{
+    list-style: none;
+}
+
+blockquote,
+q
+{
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after
+{
+    content: '';
+    content: none;
+}
+
+table
+{
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+body
+{
+    font-family: Meiryo, 'Hiragino Kaku Gothic Pro', 'ＭＳ Ｐゴシック', Osaka, Arial, Sans-serif;
+}
+
+img
+{
+    vertical-align: bottom;
+}
+
+a
+{
+    color: #1075bf;
+}
+
+/*
+ * tool - mixinなど
+ */
+/*
+SCSS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon-home: x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet: width height image $spritesheet-sprites;
+*/
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  @include sprite-width($icon-home);
+}
+
+.icon-email {
+  @include sprite($icon-email);
+}
+*/
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of SCSS
+
+@include sprites($spritesheet-sprites);
+*/
+/*
+ * block - BEMのBlock
+ */
+.hage
+{
+    width: 100px;
+    height: 100px;
+
+    background-color: #ccc;
+}
+
+.hage__body
+{
+    width: 70px;
+    height: 70px;
+    margin: 0 auto;
+
+    -webkit-transform: translate(10px, 0);
+            transform: translate(10px, 0);
+
+    background-color: #fff;
+}
+
+.hoge
+{
+    color: red;
+}
+
+/*doc
+
+---
+title: icon
+name: icon
+category: block
+---
+
+スプライト画像をアイコンとして使用
+
+```html_example
+<div class="icon icon--yen">サンプル</div>
+```
+
+*/
+.icon
+{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display:         flex;
+
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center;
+}
+
+.icon:before
+{
+    display: inline-block;
+
+    content: '';
+}
+
+.icon--yen:before
+{
+    width: 12px;
+    height: 12px;
+
+    background-image: url(../img/sprite.png);
+    background-position: -80px -28px;
+    background-size: 108px 55px;
+}
+
+/*
+ * utility - helperなど
+ */
+.mg-8
+{
+    margin: 8px;
+}
+
+.mg-16
+{
+    margin: 16px;
+}
+
+.mg-8t
+{
+    margin-top: 8px;
+}
+
+.mg-16t
+{
+    margin-top: 16px;
+}
+
+.mg-8b
+{
+    margin-bottom: 8px;
+}
+
+.mg-16b
+{
+    margin-bottom: 16px;
+}
+
+.mg-8r
+{
+    margin-right: 8px;
+}
+
+.mg-16r
+{
+    margin-right: 16px;
+}
+
+.mg-8l
+{
+    margin-left: 8px;
+}
+
+.mg-16l
+{
+    margin-left: 16px;
+}
+
+.pd-8
+{
+    padding: 8px;
+}
+
+.pd-16
+{
+    padding: 16px;
+}
+
+.pd-8t
+{
+    padding-top: 8px;
+}
+
+.pd-16t
+{
+    padding-top: 16px;
+}
+
+.pd-8b
+{
+    padding-bottom: 8px;
+}
+
+.pd-16b
+{
+    padding-bottom: 16px;
+}
+
+.pd-8r
+{
+    padding-right: 8px;
+}
+
+.pd-16r
+{
+    padding-right: 16px;
+}
+
+.pd-8l
+{
+    padding-left: 8px;
+}
+
+.pd-16l
+{
+    padding-left: 16px;
+}
+
+/*doc
+
+---
+title: txt
+name: txt
+category: utility
+---
+
+テキスト関連
+
+```html_example
+<p class="txt-link">リンク色</div>
+```
+
+*/
+.txt-bold
+{
+    font-weight: bold;
+}
+
+.txt-base
+{
+    font-size: 12px;
+}
+
+.txt-link
+{
+    color: #1075bf;
+}
+
+.txt-right
+{
+    text-align: right;
+}
+
+.txt-left
+{
+    text-align: left;
+}
+
+.txt-center
+{
+    text-align: center;
+}
