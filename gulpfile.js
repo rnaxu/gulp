@@ -198,7 +198,8 @@ gulp.task('hologram', function() {
   gulp.src('hologram_config.yml')
     .pipe(hologram({
       bundler:true
-    }));
+    }))
+    .pipe(reload({stream: true}));
 });
 
 
@@ -209,7 +210,7 @@ var browserSync = require("browser-sync");
 var reload = browserSync.reload;
 
 // watch
-gulp.task('watch', ['build:html', 'build:css', 'build:js'], function() {
+gulp.task('watch', ['build:html', 'build:css', 'build:js', 'hologram'], function() {
   browserSync({
     server: './',
     port: 1108
@@ -217,6 +218,8 @@ gulp.task('watch', ['build:html', 'build:css', 'build:js'], function() {
   gulp.watch(path.hbs_src + '**/*.hbs', ['build:html']);
   gulp.watch(path.scss_src + '**/*.scss', ['build:css']);
   gulp.watch(path.js_src + '**/*.js', ['build:js']);
+  gulp.watch(path.styleguide + 'doc_assets/*.html', ['hologram']);
+  gulp.watch(path.styleguide + 'css/*.css', ['hologram']);
 });
 
 

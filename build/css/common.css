@@ -1,10 +1,75 @@
 @charset 'UTF-8';
 /*
- * setting - 変数宣言
+ * setting - 変数宣言、mixinなど
  */
-/**
+/*doc
+
+---
+title: color
+name: color
+category: setting
+---
+
+colorの変数宣言
+
+<p class="txt-link">$color-link</p>
+
+*/
+/*
+SCSS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon-home: x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet: width height image $spritesheet-sprites;
+*/
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  @include sprite-width($icon-home);
+}
+
+.icon-email {
+  @include sprite($icon-email);
+}
+*/
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of SCSS
+
+@include sprites($spritesheet-sprites);
+*/
+/*doc
+
+---
+title: r-sprite
+name: r-sprite
+category: setting
+---
+
+CSSスプライト用mixin
+
+*/
+/*
  * base - リセット・デフォルトスタイル定義
  */
+/*doc
+
+---
+title: reset
+name: reset
+category: base
+---
+
+各ブラウザのデフォルトスタイルをリセット
+
+*/
 html,
 body,
 div,
@@ -141,6 +206,17 @@ table
     border-collapse: collapse;
 }
 
+/*doc
+
+---
+title: default
+name: default
+category: base
+---
+
+このプロジェクトのデフォルトのスタイルを定義
+
+*/
 body
 {
     font-family: Meiryo, 'Hiragino Kaku Gothic Pro', 'ＭＳ Ｐゴシック', Osaka, Arial, Sans-serif;
@@ -156,39 +232,6 @@ a
     color: #1075bf;
 }
 
-/*
- * tool - mixinなど
- */
-/*
-SCSS variables are information about icon's compiled state, stored under its original file name
-
-.icon-home {
-  width: $icon-home-width;
-}
-
-The large array-like variables contain all information about a single icon
-$icon-home: x y offset_x offset_y width height total_width total_height image_path;
-
-At the bottom of this section, we provide information about the spritesheet itself
-$spritesheet: width height image $spritesheet-sprites;
-*/
-/*
-The provided mixins are intended to be used with the array-like variables
-
-.icon-home {
-  @include sprite-width($icon-home);
-}
-
-.icon-email {
-  @include sprite($icon-email);
-}
-*/
-/*
-The `sprites` mixin generates identical output to the CSS template
-  but can be overridden inside of SCSS
-
-@include sprites($spritesheet-sprites);
-*/
 /*
  * block - BEMのBlock
  */
@@ -371,10 +414,10 @@ name: txt
 category: utility
 ---
 
-テキスト関連
+テキスト系
 
 ```html_example
-<p class="txt-link">リンク色</div>
+<a class="txt-link">リンク</a>
 ```
 
 */
