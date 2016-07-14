@@ -1,0 +1,38 @@
+/*
+#panel
+*/
+
+@charset "utf-8";
+
+.panel {
+  display: block;
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  background-color: #fff;
+  + .panel, + .card {
+    border-top: solid 1px #fff;
+  }
+  &--border {
+    border-bottom: solid 1px #fff;
+  }
+  &__layer {
+    box-sizing: border-box;
+    color: #fff;
+    overflow: hidden;
+    width: 100%;
+    padding: 6px 16px 10px;
+    background-color: rgba(0, 0, 0, .4);
+    position: absolute;
+    bottom: 0;
+  }
+  &__contents {
+    font-size: 10px;
+  }
+  &__headline {
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1.3;
+  }
+}

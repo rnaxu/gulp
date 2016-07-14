@@ -1,0 +1,23 @@
+/*
+#button
+*/
+
+@charset "utf-8";
+
+.button {
+  display: block;
+  margin: 0 auto;
+  width: 288px;
+  height: 48px;
+  line-height: 48px;
+  border-radius: 24px;
+  background-color: #ff7742;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+  text-align: center;
+  &__text {
+    display: inline-block;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+  }
+}

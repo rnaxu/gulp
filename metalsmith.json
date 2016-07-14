@@ -1,0 +1,16 @@
+{
+  "source": "src/hbs",
+  "destination": "dist",
+  "plugins": {
+    "metalsmith-layouts": {
+      "engine": "handlebars",
+      "directory": "src/hbs/layouts",
+      "partials": "src/hbs/partials",
+      "pattern": "**/*.hbs",
+      "rename": true
+    },
+    "metalsmith-register-helpers": {
+      "directory": "node_modules/handlebars-helpers/lib"
+    }
+  }
+}

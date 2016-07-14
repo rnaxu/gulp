@@ -1,0 +1,32 @@
+/*
+#tile
+*/
+
+@charset "utf-8";
+
+.tile {
+  display: flex;
+  background-color: #cbbca9;
+  + .tile {
+    border-top: solid 1px #f0dbbc;
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 8px;
+    width: 50%;
+    height: 90px;
+    background-size: cover;
+    background-position: center;
+    &:first-child {
+      border-right: solid 1px #f0dbbc;
+    }
+  }
+  &__title {
+    font-size: 17px;
+    color: #fff;
+    font-weight: bold;
+  }
+}

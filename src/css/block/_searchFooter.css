@@ -1,0 +1,18 @@
+/*
+#searchFooter
+ページ下部の検索モジュール
+*/
+
+@charset "utf-8";
+
+.searchFooter {
+  background-color: #f0dbbc;
+  padding-bottom: 39px;
+  &__headline {
+    font-size: 16px;
+    font-weight: bold;
+    color: #847866;
+    text-align: center;
+    padding: 33px 16px 17px;
+  }
+}

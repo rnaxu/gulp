@@ -1,0 +1,48 @@
+/*
+#list
+*/
+
+@charset "utf-8";
+
+.list {
+  background-color: #fff;
+  &__item {
+    border-bottom: solid 1px #eee;
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+  &__inner {
+    position: relative;
+    display: block;
+    padding: 15px 32px 15px 16px;
+    &::after {
+      display: block;
+      content: "";
+      width: 5px;
+      height: 5px;
+      border-top: solid 2px #959595;
+      border-right: solid 2px #959595;
+      transform: rotate(45deg);
+      position: absolute;
+      right: 16px;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+    &--header {
+      background-color: #feebd3;
+      border-top: solid 1px #ead6b8;
+    }
+    &--close {
+      &::after {
+        transform: rotate(135deg);
+      }
+    }
+    &--open {
+      &::after {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+/*
+#slider
+横スライドモジュール
+*/
+
+@charset "utf-8";
+
+.slider {
+  width: 100%;
+  height: 168px;
+  overflow: hidden;
+  background-color: #fff;
+  + .arrowLink {
+    border-top: solid 1px #eee;
+  }
+  &--map {
+    height: 160px;
+  }
+  &__inner {
+    width: 100%;
+    height: 180px;
+    position: relative;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+  &__list {
+    position: absolute;
+    display: flex;
+    margin: 24px 0 0 16px;
+  }
+  &__item {
+    margin-right: 8px;
+    position: relative;
+    &:last-child {
+      margin-right: 16px;
+    }
+  }
+  &__thumbnail {
+    background-size: cover;
+    background-position: center;
+    width: 120px;
+    height: 120px;
+  }
+  &__layer {
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .4);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    min-height: 40px;
+    padding: 6px 12px;
+  }
+  &__headline {
+    color: #fff;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 1.15;
+  }
+}

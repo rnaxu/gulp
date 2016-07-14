@@ -2,24 +2,59 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>{{title}}</title>
-<meta name="description" content="{{description}}">
-<meta name="keyword" content="{{keyword}}">
+<title>{{data.title}}</title>
+<meta name="description" content="{{data.description}}">
+<meta name="keywords" content="{{data.keywords}}">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0">
 <meta name="format-detection" content="telephone=no">
-<link rel="canonical" href="">
-<link rel="apple-touch-icon" href="">
-<link rel="stylesheet" href="css/common.css">
+<meta property="og:title" content="{{data.title}}">
+<meta property="og:description" content="{{data.description}}">
+<meta property="og:url" content="{{data.url.sp}}">
+<meta property="og:image" content="http://www.gnavi.co.jp/img/gu.png">
+<link rel="canonical" href="{{data.url.pc}}">
+<link rel="next" href="{{data.next}}">
+<link rel="apple-touch-icon" href="//x.gnst.jp/webclip.png">
+<link rel="stylesheet" type="text/css" href="//c-x.gnst.jp/s/g.css">
+<link rel="stylesheet" href="css/lp.min.css">
 </head>
 <body>
+
 <!-- #page -->
 <div id="page">
-{{> header}}
-{% body %}
-{{> footer}}
+{{> common_header}}
+{{> body}}
+{{> common_footer}}
 </div>
 <!-- /#page -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="js/common.js"></script>
+
+<!-- 地図検索遷移用URL -->
+<script>
+var mapBaseUrl = '#';
+</script>
+<!-- /地図検索遷移用URL -->
+
+<!-- 全コンテンツ共通JS -->
+<script>window.jQuery || document.write('<script src="//x.gnst.jp/jquery-1.7.2.js?revision=20130520"><\/script>')</script>
+{{#is common_footer 2}}
+<script>$("#gotoPc").click(function(){$.cookie('smp_pcview', '1',{path: '/',domain: '.gnavi.co.jp'}); return true;});</script>
+{{/is}}
+<script>if(!jQuery.gncookie||!jQuery.cookie){document.write(unescape('%3Cscript%20src="//x.gnst.jp/jquery.gncookie.js?revision=20130722"%3E%3C/script%3E'));}</script>
+{{#is common_header 2}}
+<script src="//x.gnst.jp/s/h.js?revision=20150212"></script>
+{{/is}}
+<!-- /全コンテンツ共通JS  -->
+
+<!-- 真LP用JS -->
+<script src="js/jquery.lazyload.min.js"></script>
+<script src="js/lp.min.js"></script>
+<!-- /真LP用JS -->
+
+<!-- analysis -->
+<div style="display:none;height:0;position:relative;visibility:hidden;width:0;">
+<script src="//x.gnst.jp/s.js"></script>
+<script>('localhost' !== location.hostname) && document.write(unescape("%3Cscript src='//site.gnavi.co.jp/analysis/sc_"+getScSubdom()+".js'%3E%3C/script%3E"));</script>
+</div>
+<!-- /analysis -->
+
 </body>
 </html>

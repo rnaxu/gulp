@@ -1,0 +1,19 @@
+/*
+#searchLink
+*/
+
+@charset "utf-8";
+
+.searchLink {
+  display: block;
+  background-color: #fff;
+  padding: 20px 16px 16px;
+  text-align: center;
+  &__main {
+    font-size: 19px;
+    font-weight: bold;
+  }
+  &__sub {
+    font-size: 13px;
+  }
+}

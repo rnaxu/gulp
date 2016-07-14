@@ -1,0 +1,13 @@
+/*
+#simpleButton
+*/
+
+@charset "utf-8";
+
+.simpleButton {
+  display: block;
+  padding: 21px 16px 20px;
+  text-align: center;
+  background-color: #fff;
+  color: $color-link;
+}

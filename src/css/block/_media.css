@@ -1,0 +1,48 @@
+/*
+#media
+*/
+
+@charset "utf-8";
+
+.media {
+  border-top: solid 1px #e5e5e5;
+  min-height: 120px;
+  background-color: #fff;
+  + .simpleButton, + .arrowLink {
+    border-top: solid 1px #e5e5e5;
+  }
+  &__thumbnail {
+    width: 120px;
+    min-height: 120px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  &__rank {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    position: absolute;
+    top: 11px;
+    left: 8px;
+    background-color: #fff;
+    color: #b7aa00;
+    text-align: center;
+    line-height: 25px;
+  }
+  &__textBox {
+    background-color: #fff;
+    padding: 14px 16px;
+    overflow: hidden;
+  }
+  &__shop {
+    font-weight: bold;
+    color: #000;
+    line-height: 1.28;
+    margin-bottom: 4px;
+  }
+  &__info {
+    font-size: 10px;
+    color: #707070;
+  }
+}

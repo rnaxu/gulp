@@ -1,0 +1,13 @@
+/*
+#color
+色関連の変数宣言
+*/
+
+@charset "utf-8";
+
+ /* color */
+$color-default: #000;
+$color-link: #008eec;
+
+ /* bgcolor */
+$bgcolor-default: #f7f3e8;
