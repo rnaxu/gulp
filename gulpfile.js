@@ -333,5 +333,5 @@ gulp.task('default', function () {
 
 // run
 gulp.task('serve', function () {
-  gulpSequence('del', 'build', 'watch')();
+  gulpSequence('build', 'watch')();
 });

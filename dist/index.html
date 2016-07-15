@@ -1,10 +1,28 @@
 <!DOCTYPE html>
 <html lang="ja">
-<%- include('../partials/head') %>
+<head>
+<meta charset="UTF-8">
+<title>title</title>
+<meta name="description" content="description">
+<meta name="keywords" content="keywords">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta property="og:title" content="title">
+<meta property="og:description" content="description">
+<meta property="og:url" content="url-sp">
+<meta property="og:image" content="//dummyimage.com/1200x630/000/fff.png">
+<link rel="canonical" href="url-pc">
+<link rel="apple-touch-icon" href="//dummyimage.com/152x251/000/fff.png&amp;text=icon">
+<!-- CSS -->
+<link rel="stylesheet" href="css/style.min.css">
+<!-- /CSS -->
+</head>
 <body>
 <div class="page">
 
-<%- include('../partials/header') %>
+<header class="header">
+  <p class="header__title">header</p>
+</header>
 
 <!-- title -->
 <h1 class="title">
@@ -484,11 +502,17 @@
 </div>
 <!-- searchFooter -->
 
-<%- include('../partials/footer') %>
+<footer class="footer">
+  <p class="footer__title">footer</p>
+</footer>
 
 </div>
 
-<%- include('../partials/script') %>
+<!-- JS -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="js/lib/jquery.lazyload.min.js"></script>
+<script src="js/script.min.js"></script>
+<!-- /JS -->
 
 </body>
 </html>
