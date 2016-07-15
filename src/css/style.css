@@ -1,8 +1,3 @@
-/*
-# style
-分割されたファイルをインポート
-*/
-
 @charset "utf-8";
 
 /*
@@ -44,7 +39,7 @@
  * utility - helperなど
  */
 @import "utility/flex";
-@import "utility/js";
+@import "utility/is";
 @import "utility/mg";
 @import "utility/pd";
 @import "utility/shadow";

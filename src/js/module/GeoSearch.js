@@ -21,7 +21,7 @@ module.exports = (function() {
   // 現在地周辺ボタンをトルツメ
   GeoSearch.prototype.hiddenGeoSearch = function() {
     var $wrap = this.$geoSearch.parents('.js-geoSeachWrap');
-    $wrap.addClass('js-displayNone');
+    $wrap.addClass('is-hidden');
     $wrap.siblings('.js-slider').removeClass('slider--map');
   };
 

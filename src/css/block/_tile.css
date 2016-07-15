@@ -1,5 +1,32 @@
 /*
-# tile
+---
+name: tile
+category: block/tile
+---
+
+```html
+<!-- tile -->
+<div class="tile">
+
+  <!-- tile__item -->
+  <a href="#" class="tile__item js-lazy" data-original="//dummyimage.com/320x180/eee/fff.png&text=dummy">
+    <section>
+      <h3 class="tile__title">1</h3>
+    </section>
+  </a>
+  <!-- /tile__item -->
+
+  <!-- tile__item -->
+  <a href="#" class="tile__item js-lazy" data-original="//dummyimage.com/320x180/eee/fff.png&text=dummy">
+    <section>
+      <h3 class="tile__title">2</h3>
+    </section>
+  </a>
+  <!-- /tile__item -->
+
+</div>
+<!-- /tile -->
+```
 */
 
 @charset "utf-8";

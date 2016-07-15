@@ -1,6 +1,69 @@
 /*
-# slider
-横スライドモジュール
+---
+name: slider
+category: block/slider
+---
+
+```html
+<!-- slider -->
+<div class="slider js-slider">
+  <div class="slider__inner js-overflowScroll">
+    <ul class="slider__list">
+      <li class="slider__item">
+        <a href="#">
+          <section>
+            <div class="slider__thumbnail js-lazy" data-original="//dummyimage.com/240x240/f5f5f5/fff.png&text=dummy"></div>
+            <div class="slider__layer">
+              <h3 class="slider__headline">headline</h3>
+            </div>
+          </section>
+        </a>
+      </li>
+      <li class="slider__item">
+        <a href="#">
+          <section>
+            <div class="slider__thumbnail js-lazy" data-original="//dummyimage.com/240x240/f5f5f5/fff.png&text=dummy"></div>
+            <div class="slider__layer">
+              <h3 class="slider__headline">headline</h3>
+            </div>
+          </section>
+        </a>
+      </li>
+      <li class="slider__item">
+        <a href="#">
+          <section>
+            <div class="slider__thumbnail js-lazy" data-original="//dummyimage.com/240x240/f5f5f5/fff.png&text=dummy"></div>
+            <div class="slider__layer">
+              <h3 class="slider__headline">headline</h3>
+            </div>
+          </section>
+        </a>
+      </li>
+      <li class="slider__item">
+        <a href="#">
+          <section>
+            <div class="slider__thumbnail js-lazy" data-original="//dummyimage.com/240x240/f5f5f5/fff.png&text=dummy"></div>
+            <div class="slider__layer">
+              <h3 class="slider__headline">headline</h3>
+            </div>
+          </section>
+        </a>
+      </li>
+      <li class="slider__item">
+        <a href="#">
+          <section>
+            <div class="slider__thumbnail js-lazy" data-original="//dummyimage.com/240x240/f5f5f5/fff.png&text=dummy"></div>
+            <div class="slider__layer">
+              <h3 class="slider__headline">headline</h3>
+            </div>
+          </section>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- /slider -->
+```
 */
 
 @charset "utf-8";

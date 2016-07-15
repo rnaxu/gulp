@@ -11,7 +11,7 @@ module.exports = (function() {
     $('.js-viewAll').on('click', function() {
       var $this = $(this);
       $this.siblings('.js-viewItem').fadeIn();
-      $this.addClass('js-displayNone');
+      $this.addClass('is-hidden');
     });
   };
 

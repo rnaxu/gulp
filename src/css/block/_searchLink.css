@@ -1,5 +1,17 @@
 /*
-# searchLink
+---
+name: searchLink
+category: block/searchLink
+---
+
+```html
+<!-- searchLink -->
+<a href="#" class="searchLink">
+  <h2 class="searchLink__main">main</h2>
+  <p class="searchLink__sub">sub</p>
+</a>
+<!-- /searchLink -->
+```
 */
 
 @charset "utf-8";

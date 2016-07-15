@@ -1,6 +1,17 @@
 /*
-# title
-ページ上部タイトル
+---
+name: title
+category: block/title
+---
+
+```html
+<!-- title -->
+<h1 class="title">
+  <span class="title__main">main</span>
+  <spn class="title__sub">sub</span>
+</h1>
+<!-- /title -->
+```
 */
 
 @charset "utf-8";

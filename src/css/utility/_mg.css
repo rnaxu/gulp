@@ -1,12 +1,3 @@
-/*
-# mg
-margin
-```
-<div class="mg-8">Hello!</div>
-<div class="mg-16">Hello!</div>
-```
-*/
-
 @charset "utf-8";
 
 .mg-8 {margin: 8px}

@@ -1,8 +1,12 @@
 /*
-# panel
+---
+name: panel
+category: block/panel
+---
 
-```
-<a href="#" class="panel" style="background-image:url(//dummyimage.com/750x360/f5f5f5/fff.png&text=dummy);">
+```html
+<!-- panel -->
+<a href="#" class="panel js-lazy" data-original="//dummyimage.com/750x360/f5f5f5/fff.png&text=dummy">
   <article>
     <div class="panel__layer">
       <p class="panel__contents">contents</p>
@@ -10,8 +14,8 @@
     </div>
   </article>
 </a>
+<!-- /panel -->
 ```
-
 */
 
 @charset "utf-8";

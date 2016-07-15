@@ -1,6 +1,16 @@
 /*
-# arrowLink
-矢印付きリンクモジュール
+---
+name: arrowLink
+category: block/arrowLink
+---
+
+```html
+<!-- arrowLink -->
+<a href="#" class="arrowLink">
+  <p class="arrowLink__headline">headline</p>
+</a>
+<!-- /arrowLink -->
+```
 */
 
 @charset "utf-8";

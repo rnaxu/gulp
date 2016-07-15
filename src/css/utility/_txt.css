@@ -1,11 +1,6 @@
-/*
-# txt
-text系helperクラス
-*/
-
 @charset "utf-8";
 
- /* font */
+/* font */
 .txt-bold {
   font-weight: bold;
 }
@@ -15,7 +10,7 @@ text系helperクラス
 }
 
 
- /* color */
+/* color */
 .txt-link {
   color: $color-link;
 }
@@ -25,7 +20,7 @@ text系helperクラス
 }
 
 
- /* text-align */
+/* text-align */
 .txt-right {
   text-align: right;
 }
@@ -38,7 +33,7 @@ text系helperクラス
   text-align: center;
 }
 
- /* 文字省略 */
+/* 文字省略 */
 .txt-ellipsis { /* 1行 */
   overflow: hidden;
   white-space: nowrap;

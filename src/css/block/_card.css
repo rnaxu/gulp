@@ -1,5 +1,44 @@
 /*
-#card
+---
+name: card
+category: block/card
+---
+
+```html
+<!-- card -->
+<div class="card">
+
+  <!-- card__item -->
+  <a href="#" class="card__item">
+    <article>
+      <div class="card__thumbnail js-lazy" data-original="//dummyimage.com/320x320/f5f5f5/fff.png&text=dummy">
+      </div>
+      <div class="card__textBox">
+        <h3 class="card__shop">headline</h3>
+        <p class="card__info">info</p>
+        <p class="card__info">info</p>
+      </div>
+    </article>
+  </a>
+  <!-- /card__item -->
+
+  <!-- card__item -->
+  <a href="#" class="card__item">
+    <article>
+      <div class="card__thumbnail js-lazy" data-original="//dummyimage.com/320x320/f5f5f5/fff.png&text=dummy">
+      </div>
+      <div class="card__textBox">
+        <h3 class="card__shop">headline</h3>
+        <p class="card__info">info</p>
+        <p class="card__info">info</p>
+      </div>
+    </article>
+  </a>
+  <!-- /card__item -->
+
+</div>
+<!-- /card -->
+```
 */
 
 @charset "utf-8";

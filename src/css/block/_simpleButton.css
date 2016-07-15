@@ -1,5 +1,12 @@
 /*
-# simpleButton
+---
+name: simpleButton
+category: block/simpleButton
+---
+
+```html
+<div class="simpleButton">simpleButton</div>
+```
 */
 
 @charset "utf-8";

@@ -1,5 +1,25 @@
 /*
-#media
+---
+name: media
+category: block/media
+---
+
+```html
+<!-- media -->
+<article class="media">
+  <a href="#" class="flex">
+    <div class="media__thumbnail js-lazy" data-original="//dummyimage.com/240x240/f5f5f5/fff.png&text=dummy">
+      <div class="media__rank">1</div>
+    </div>
+    <div class="media__textBox flex-item">
+      <h3 class="media__shop">healine</h3>
+      <p class="media__info">info</p>
+      <p class="media__info">info</p>
+    </div>
+  </a>
+</article>
+<!-- /media -->
+```
 */
 
 @charset "utf-8";

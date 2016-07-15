@@ -1,5 +1,18 @@
 /*
-# button
+---
+name: button
+category: block/button
+---
+
+```html
+<!-- button -->
+<a href="#" class="button">
+  <p class="button__text">
+    <span class="ic-b ic-b--location">button</span>
+  </p>
+</a>
+<!-- /button -->
+```
 */
 
 @charset "utf-8";

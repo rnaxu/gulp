@@ -1,8 +1,3 @@
-/*
-#sprite
-CSSスプライト retina対応mixin
-*/
-
 @charset "utf-8";
 
 @define-mixin sprite $name {

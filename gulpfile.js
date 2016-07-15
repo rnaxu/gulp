@@ -48,7 +48,8 @@ var path = {
   css_src: 'src/css/',
   js_src: 'src/js/',
   img_src: 'src/img/',
-  sprite_src: 'src/sprite/'
+  sprite_src: 'src/sprite/',
+  guide_src: 'styleguide/'
 };
 
 
@@ -97,17 +98,15 @@ gulp.task('optim', function() {
 
 
 /*
- * styledocco
+ * style guide
  */
-var styledocco = require('gulp-styledocco');
 
-gulp.task('styleguide', function () {
-  return gulp.src(path.css_src + '**/*.css')
-    .pipe(styledocco({
-      out: path.dist + 'styleguide',
-      name: 'Styleduide',
-      include: [path.dist + 'css/style.min.css', path.dist + 'js/script.min.js']
-    }));
+// aigis
+var aigis = require('gulp-aigis');
+
+gulp.task('aigis', function() {
+  return gulp.src(path.guide_src + 'aigis_config.yml')
+    .pipe(aigis());
 });
 
 
@@ -120,7 +119,6 @@ var ejs = require('gulp-ejs');
 gulp.task('ejs', function() {
   gulp.src([
     path.html_src + 'pages/**/*.ejs'
-    // '!' + path.html_src + 'partials/**/*.ejs'
   ])
   .pipe(plumber({
     errorHandler: notify.onError('<%= error.message %>')
