@@ -236,16 +236,16 @@ gulp.task('copy_lib', function () {
 // eslint
 var eslint = require('gulp-eslint');
 gulp.task('eslint', function () {
-    return gulp.src([
-      path.js_src + '**/*.js',
-      '!' + path.js_src + 'lib/*.js'
-    ])
-      .pipe(plumber({
-        errorHandler: notify.onError('<%= error.message %>')
-      }))
-      .pipe(eslint())
-      .pipe(eslint.format())
-      .pipe(eslint.failAfterError());
+  return gulp.src([
+    path.js_src + '**/*.js',
+    '!' + path.js_src + 'lib/*.js'
+  ])
+  .pipe(plumber({
+    errorHandler: notify.onError('<%= error.message %>')
+  }))
+  .pipe(eslint())
+  .pipe(eslint.format())
+  .pipe(eslint.failAfterError());
 });
 
 

@@ -1,13 +1,10 @@
 /*
  * 遅延ロード
  */
-module.exports = (function() {
 
-  function Lazyload() {
-  }
-
+export default class Lazyload {
   // イベントをセット
-  Lazyload.prototype.setLazyload = function() {
+  setLazyload() {
     $('.js-lazy').lazyload({
       // effect: 'fadeIn',
       threshold: 300
@@ -15,8 +12,5 @@ module.exports = (function() {
       //     $(this).children('.js-overlay').addClass('js-card__overlay');
       // }
     });
-  };
-
-  return Lazyload;
-
-})();
+  }
+}

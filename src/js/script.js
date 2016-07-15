@@ -1,26 +1,27 @@
 /*
  * 実行
  */
-var Lazyload = require('./module/Lazyload');
-var UserAgent = require('./module/UserAgent');
-var OverflowScroll = require('./module/OverflowScroll');
-var GeoSearch = require('./module/GeoSearch');
-var ViewAll = require('./module/ViewAll');
-var Accordion = require('./module/Accordion');
+
+import Lazyload from './module/Lazyload';
+import UserAgent from './module/UserAgent';
+import OverflowScroll from './module/OverflowScroll';
+import GeoSearch from './module/GeoSearch';
+import ViewAll from './module/ViewAll';
+import Accordion from './module/Accordion';
 
 (function() {
 
-  var lazyload = new Lazyload();
-  var userAgent = new UserAgent();
-  var overflowScroll = new OverflowScroll();
-  var geoSearch = new GeoSearch();
-  var viewAll = new ViewAll();
-  var accordion = new Accordion();
+  const lazyload = new Lazyload();
+  const userAgent = new UserAgent();
+  const overflowScroll = new OverflowScroll();
+  const geoSearch = new GeoSearch();
+  const viewAll = new ViewAll();
+  const accordion = new Accordion();
 
   // 遅延ロード
   lazyload.setLazyload();
 
-  var os = userAgent.getOS();
+  const os = userAgent.getOS();
 
   if (os === 'iPhone') { // iPhoneだったら
 
@@ -54,3 +55,4 @@ var Accordion = require('./module/Accordion');
   accordion.setAccordion();
 
 })();
+

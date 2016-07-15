@@ -1,20 +1,14 @@
 /*
  * もっと見る
  */
-module.exports = (function() {
 
-  function ViewAll() {
-  }
-
+export default class ViewAll {
   // イベントをセット
-  ViewAll.prototype.setViewAll = function() {
+  setViewAll() {
     $('.js-viewAll').on('click', function() {
-      var $this = $(this);
+      const $this = $(this);
       $this.siblings('.js-viewItem').fadeIn();
       $this.addClass('is-hidden');
     });
-  };
-
-  return ViewAll;
-
-})();
+  }
+}
