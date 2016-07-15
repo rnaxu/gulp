@@ -9,17 +9,17 @@
  *
  * $ gulp serve
  *
- * ** spriteコマンド
+ * ** sprite
  *
  * $ gulp sprite
  *
- * ** image optimコマンド
+ * ** 画像を圧縮
  *
  * $ gulp optim
  *
- * ** style guideコマンド
+ * ** スタイルガイド
  *
- * $ gulp styleguide
+ * $ gulp aigis
  *
  * ---------------------------------------------------------------------- */
 
