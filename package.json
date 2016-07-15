@@ -1,7 +1,7 @@
 {
-  "name": "gulp",
-  "description": "gulp",
-  "version": "0.0.2",
+  "name": "gulp-template",
+  "description": "gulp-template",
+  "version": "0.1.0",
   "main": "index",
   "author": "rnaxu",
   "license": "MIT",
@@ -43,9 +43,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rnaxu/gulp.git"
+    "url": "https://github.com/rnaxu/gulp-template.git"
   },
   "keywords": [
-    "gulp"
+    "gulp-template"
   ]
 }
