@@ -11,17 +11,17 @@
     > .card__item {
       &:nth-child(odd) { /* card__itemが奇数 */
         .card__textBox {
-          background-color: #9e764e;
+          background-color: #0097A7;
             > .card__info {
-              color: #e2d6ca;
+              color: #B2EBF2;
             }
         }
       }
       &:nth-child(even) { /* card__itemが偶数 */
         .card__textBox {
-          background-color: #de9303;
+          background-color: #00BCD4;
             > .card__info {
-              color: #f8e9cd;
+              color: #B2EBF2;
             }
         }
       }
@@ -31,17 +31,17 @@
     > .card__item {
       &:nth-child(odd) { /* card__itemが奇数 */
         .card__textBox {
-          background-color: #de9303;
+          background-color: #00BCD4;
             > .card__info {
-              color: #f8e9cd;
+              color: #B2EBF2;
             }
         }
       }
       &:nth-child(even) { /* card__itemが偶数 */
         .card__textBox {
-          background-color: #9e764e;
+          background-color: #0097A7;
             > .card__info {
-              color: #e2d6ca;
+              color: #B2EBF2;
             }
         }
       }

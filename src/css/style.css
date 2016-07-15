@@ -1,5 +1,5 @@
 /*
-#lp
+# style
 分割されたファイルをインポート
 */
 
@@ -22,10 +22,10 @@
 /*
  * block - BEMのBlock
  */
- /* @import "block/ad"; */
 @import "block/arrowLink";
 @import "block/button";
 @import "block/card";
+@import "block/header";
 @import "block/headline";
 @import "block/ic";
 @import "block/list";
@@ -38,6 +38,7 @@
 @import "block/slider";
 @import "block/tile";
 @import "block/title";
+@import "block/footer";
 
 /*
  * utility - helperなど

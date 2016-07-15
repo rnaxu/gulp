@@ -6,8 +6,8 @@
 @charset "utf-8";
 
  /* color */
-$color-default: #000;
-$color-link: #008eec;
+$color-default: #212121;
+$color-link: #B6B6B6;
 
  /* bgcolor */
-$bgcolor-default: #f7f3e8;
+$bgcolor-default: #eee;

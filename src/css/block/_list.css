@@ -31,8 +31,9 @@
       margin: auto;
     }
     &--header {
-      background-color: #feebd3;
-      border-top: solid 1px #ead6b8;
+      background-color: #B2EBF2;
+      border-top: solid 1px #eee;
+      color: #727272;
     }
     &--close {
       &::after {

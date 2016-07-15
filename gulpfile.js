@@ -1,7 +1,11 @@
 /**
  * gulp
  *
- * ** ローカルサーバーを立ち上げて作業
+ * ** ビルド
+ *
+ * $ gulp
+ *
+ * ** ローカルサーバーを立ち上げる
  *
  * $ gulp serve
  *
@@ -40,7 +44,7 @@ events.EventEmitter.defaultMaxListeners = 100;
 var path = {
   src: 'src/',
   dist: 'dist/',
-  html_src: 'src/html/',
+  html_src: 'src/ejs/',
   css_src: 'src/css/',
   js_src: 'src/js/',
   img_src: 'src/img/',
@@ -53,7 +57,7 @@ var path = {
  */
 var del = require('del');
 gulp.task('del', function () {
-  del(path.dist);
+  return del(path.dist);
 });
 
 
@@ -111,39 +115,25 @@ gulp.task('styleguide', function () {
  * html
  */
 
-// metalsmith
-var prettify = require('gulp-metalsmith');
-
-gulp.task('metalsmith', function() {
- return gulp.src(path.src.html + '**/*.hbs')
-   .pipe(plumber({
-     errorHandler: notify.onError('<%= error.message %>')
-   }))
-   .pipe(metalsmith({
-    //  use: [layouts({engine: 'handlebars'})]
-   }))
-   .pipe(gulp.dest(path.dist + '/'));
-});
-
-//htmlmin
-var prettify = require('gulp-prettify');
-
-gulp.task('prettify', function() {
-  return gulp.src(path.dist + '*.html')
-    .pipe(plumber({
-      errorHandler: notify.onError('<%= error.message %>')
-    }))
-    .pipe(prettify({
-      // indent_inner_html: false,
-      indent_size: 4,
-      // contense: true,
-      // padcomments: true,
-      unformatted: ["span"]
-     }))
-    .pipe(gulp.dest(path.dist + '/'))
-    .pipe(size({
-      title: 'size : html'
-    }));
+// ejs
+var ejs = require('gulp-ejs');
+gulp.task('ejs', function() {
+  gulp.src([
+    path.html_src + 'pages/**/*.ejs'
+    // '!' + path.html_src + 'partials/**/*.ejs'
+  ])
+  .pipe(plumber({
+    errorHandler: notify.onError('<%= error.message %>')
+  }))
+  .pipe(ejs(
+    {
+      data: require('./' + path.html_src + 'data/default.json')
+    },
+    {
+      ext: '.html'
+    }
+  ))
+  .pipe(gulp.dest(path.dist + '/'));
 });
 
 
@@ -203,13 +193,13 @@ var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var babelify = require('babelify');
 gulp.task('browserify', function(){
-  return browserify({entries: [path.js_src + 'lp.js']})
+  return browserify({entries: [path.js_src + 'script.js']})
     .transform(babelify, {presets: ['es2015', 'react']})
     .bundle()
     .pipe(plumber({
       errorHandler: notify.onError('<%= error.message %>')
     }))
-    .pipe(source('lp.js'))
+    .pipe(source('script.js'))
     .pipe(gulp.dest(path.dist + 'js/'));
 });
 
@@ -239,26 +229,13 @@ gulp.task('copy_lib', function () {
     .pipe(plumber({
       errorHandler: notify.onError('<%= error.message %>')
     }))
-    .pipe(gulp.dest(path.dist + 'js/'))
+    .pipe(gulp.dest(path.dist + 'js/lib/'))
     .pipe(size({
       title: 'size : copy_lib'
     }));
 });
 
-// jshint
-var jshint = require('gulp-jshint');
-gulp.task('jshint', function () {
-  return gulp.src([
-    path.js_src + '**/*.js',
-    '!' + path.js_src + 'lib/*.js'
-  ])
-    .pipe(plumber({
-      errorHandler: notify.onError('<%= error.message %>')
-    }))
-    .pipe(jshint())
-    .pipe(jshint.reporter('default'));
-});
-
+// eslint
 var eslint = require('gulp-eslint');
 gulp.task('eslint', function () {
     return gulp.src([
@@ -294,10 +271,11 @@ gulp.task('copy_img', function () {
  * server
  */
 var browserSync = require('browser-sync');
-gulp.task('serve', function () {
+gulp.task('browserSync', function () {
   gulpSequence('build')();
   browserSync({
     notify: false,
+    port: 8000,
     server: {
       baseDir: path.dist
     }
@@ -312,14 +290,13 @@ gulp.task('bs-reload', function() {
 /*
  * watch
  */
-gulp.task('watch', ['serve'], function () {
+gulp.task('watch', ['browserSync'], function () {
   gulp.watch(path.html_src + '**/*.{ejs,json}', ['build:html']);
   gulp.watch(path.css_src + '**/*.css', ['build:css']);
   gulp.watch(path.js_src + '**/*.js', ['build:js']);
   gulp.watch(path.img_src + '**/*.{png,jpg}', ['build:img']);
   gulp.watch('gulpfile.js', ['build']);
-
-  gulp.watch(path.dist + '**/*', ['bs-reload']);
+  gulp.watch(path.src + '**/*', ['bs-reload']);
 });
 
 
@@ -328,7 +305,7 @@ gulp.task('watch', ['serve'], function () {
  */
 // build:html
 gulp.task('build:html', function () {
- gulpSequence('metalsmith', 'prettify')();
+ gulpSequence('ejs')();
 });
 
 // build:css
@@ -356,7 +333,7 @@ gulp.task('default', function () {
   gulpSequence('build')();
 });
 
-// serve
+// run
 gulp.task('serve', function () {
-  gulpSequence('build', 'watch')();
+  gulpSequence('del', 'build', 'watch')();
 });

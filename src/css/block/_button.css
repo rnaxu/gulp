@@ -1,5 +1,5 @@
 /*
-#button
+# button
 */
 
 @charset "utf-8";
@@ -11,7 +11,7 @@
   height: 48px;
   line-height: 48px;
   border-radius: 24px;
-  background-color: #ff7742;
+  background-color: #FF4081;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
   text-align: center;
   &__text {

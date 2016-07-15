@@ -1,14 +1,14 @@
 /*
-#tile
+# tile
 */
 
 @charset "utf-8";
 
 .tile {
   display: flex;
-  background-color: #cbbca9;
+  background-color: #0097A7;
   + .tile {
-    border-top: solid 1px #f0dbbc;
+    border-top: solid 1px #B2EBF2;
   }
   &__item {
     display: flex;
@@ -21,7 +21,7 @@
     background-size: cover;
     background-position: center;
     &:first-child {
-      border-right: solid 1px #f0dbbc;
+      border-right: solid 1px #eee;
     }
   }
   &__title {
