@@ -104,9 +104,9 @@ var styledocco = require('gulp-styledocco');
 gulp.task('styleguide', function () {
   return gulp.src(path.css_src + '**/*.css')
     .pipe(styledocco({
-      out: 'styleguide',
+      out: path.dist + 'styleguide',
       name: 'Styleduide',
-      'no-minify': true
+      include: [path.dist + 'css/style.min.css', path.dist + 'js/script.min.js']
     }));
 });
 
