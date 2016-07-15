@@ -1,6 +1,6 @@
 {
-  "name": "gulp-template",
-  "description": "gulp-template",
+  "name": "gulp",
+  "description": "gulp",
   "version": "0.1.0",
   "main": "index",
   "author": "rnaxu",
@@ -43,9 +43,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rnaxu/gulp-template.git"
+    "url": "https://github.com/rnaxu/gulp.git"
   },
   "keywords": [
-    "gulp-template"
+    "gulp"
   ]
 }

@@ -1,5 +1,5 @@
 /**
- * gulp-template
+ * gulp
  *
  * ** ビルド
  *
