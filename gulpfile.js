@@ -15,11 +15,11 @@
  *
  * ** 画像を圧縮
  *
- * $ gulp optim
+ * $ gulp image
  *
  * ** スタイルガイド
  *
- * $ gulp aigis
+ * $ gulp style
  *
  * ---------------------------------------------------------------------- */
 
@@ -66,6 +66,10 @@ gulp.task('del', function () {
  * sprite
  */
 var spritesmith = require('gulp.spritesmith');
+var replace = require('gulp-replace');
+var moment = require('momentjs');
+var timestamp = moment().format('YYYYMMDDhhmmss');
+
 gulp.task('sprite', function () {
   var spriteData = gulp.src(path.sprite_src + 'sprite-common/*.png')
     .pipe(spritesmith({
@@ -74,12 +78,13 @@ gulp.task('sprite', function () {
       imgPath: '../img/sprite-common.png',
       cssFormat: 'scss',
       padding: 5,
-      cssOpts: {// スプライト用SCSS内のmixinの記述をなくす
+      cssOpts: { // スプライト用SCSS内のmixinの記述をなくす
         functions: false
       }
-    }));
+    }))
   spriteData.img.pipe(gulp.dest(path.img_src));
-  spriteData.css.pipe(gulp.dest(path.css_src + 'setting/var/'))
+  spriteData.css.pipe(replace(/.png/g, '.png' + '?revision=' + timestamp))
+    .pipe(gulp.dest(path.css_src + 'setting/var/'))
     .pipe(size({
       title: 'size : sprite'
     }));
@@ -90,7 +95,7 @@ gulp.task('sprite', function () {
  * image optim
  */
 var imageOptim = require('gulp-imageoptim');
-gulp.task('optim', function() {
+gulp.task('image', function() {
   return gulp.src(path.img_src + '**/*.{png,jpg}')
     .pipe(imageOptim.optimize())
     .pipe(gulp.dest(path.img_src));
@@ -104,7 +109,7 @@ gulp.task('optim', function() {
 // aigis
 var aigis = require('gulp-aigis');
 
-gulp.task('aigis', function() {
+gulp.task('style', function() {
   return gulp.src(path.guide_src + 'aigis_config.yml')
     .pipe(aigis());
 });
@@ -120,18 +125,18 @@ gulp.task('ejs', function() {
   gulp.src([
     path.html_src + 'pages/**/*.ejs'
   ])
-  .pipe(plumber({
-    errorHandler: notify.onError('<%= error.message %>')
-  }))
-  .pipe(ejs(
-    {
-      data: require('./' + path.html_src + 'data/default.json')
-    },
-    {
-      ext: '.html'
-    }
-  ))
-  .pipe(gulp.dest(path.dist + '/'));
+    .pipe(plumber({
+      errorHandler: notify.onError('<%= error.message %>')
+    }))
+    .pipe(ejs(
+      {
+        data: require('./' + path.html_src + 'data/default.json')
+      },
+      {
+        ext: '.html'
+      }
+    ))
+    .pipe(gulp.dest(path.dist + '/'));
 });
 
 
@@ -240,12 +245,12 @@ gulp.task('eslint', function () {
     path.js_src + '**/*.js',
     '!' + path.js_src + 'lib/*.js'
   ])
-  .pipe(plumber({
-    errorHandler: notify.onError('<%= error.message %>')
-  }))
-  .pipe(eslint())
-  .pipe(eslint.format())
-  .pipe(eslint.failAfterError());
+    .pipe(plumber({
+      errorHandler: notify.onError('<%= error.message %>')
+    }))
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
 });
 
 
