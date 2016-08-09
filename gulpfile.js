@@ -81,7 +81,7 @@ gulp.task('sprite', function () {
       cssOpts: { // スプライト用SCSS内のmixinの記述をなくす
         functions: false
       }
-    }))
+    }));
   spriteData.img.pipe(gulp.dest(path.img_src));
   spriteData.css.pipe(replace(/.png/g, '.png' + '?revision=' + timestamp))
     .pipe(gulp.dest(path.css_src + 'setting/var/'))
@@ -176,7 +176,11 @@ gulp.task('cssnano', function () {
       errorHandler: notify.onError('<%= error.message %>')
     }))
     .pipe(postcss([
-      cssnano()
+      cssnano({
+        minifyFontValues: {
+          removeQuotes: false
+        }
+      })
     ]))
     .pipe(rename({
       extname: '.min.css'
