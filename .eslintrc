@@ -123,7 +123,6 @@
 
     // Stylistic Issues
     "brace-style": [2, "1tbs"],// 波括弧の前後の改行スタイルを統一する
-    "camelcase": [2],// キャメルケース以外での命名を許可しない
     "comma-spacing": [2, {
       "before": false,
       "after": true
