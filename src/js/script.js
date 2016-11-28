@@ -9,14 +9,13 @@ import GeoSearch from './module/GeoSearch';
 import ViewAll from './module/ViewAll';
 import Accordion from './module/Accordion';
 
-(function() {
-
+(() => {
   const lazyload = new Lazyload();
   const userAgent = new UserAgent();
   const overflowScroll = new OverflowScroll();
-  const geoSearch = new GeoSearch();
+  const geoSearch = new GeoSearch($('.js-geoSearch'));
   const viewAll = new ViewAll();
-  const accordion = new Accordion();
+  const accordion = new Accordion($('.js-listHeader'), '.js-listGroup');
 
   // 遅延ロード
   lazyload.setLazyload();
@@ -24,7 +23,6 @@ import Accordion from './module/Accordion';
   const os = userAgent.getOS();
 
   if (os === 'iPhone') { // iPhoneだったら
-
     // 現在地取得
     geoSearch.setGeoSearch();
 
@@ -32,9 +30,7 @@ import Accordion from './module/Accordion';
       // JSで横スクロール
       overflowScroll.setOverflowScroll();
     }
-
   } else if (os === 'Android') {
-
     // 現在地周辺ボタンをトルツメ
     geoSearch.hiddenGeoSearch();
 
@@ -42,7 +38,6 @@ import Accordion from './module/Accordion';
       // JSで横スクロール
       overflowScroll.setOverflowScroll();
     }
-
   } else {
     // 現在地周辺ボタンをトルツメ
     geoSearch.hiddenGeoSearch();
@@ -53,6 +48,5 @@ import Accordion from './module/Accordion';
 
   // アコーディオン
   accordion.setAccordion();
-
 })();
 

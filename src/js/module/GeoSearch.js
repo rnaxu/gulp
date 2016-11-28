@@ -4,18 +4,16 @@
 
 export default class GeoSearch {
 
-  constructor() {
-    this.$geoSearch = $('.js-geoSearch');
+  constructor($geoSearch) {
+    this.$geoSearch = $geoSearch;
   }
 
   // イベントをセット
   setGeoSearch() {
-    const _this = this;
-
     // 現在地周辺ボタンが押下されたら
-    this.$geoSearch.on('click', function() {
+    this.$geoSearch.on('click', () => {
       // GeolocationAPIに対応しているかチェック
-      _this.checkGeoApi();
+      this.checkGeoApi();
     });
   }
 
@@ -40,7 +38,7 @@ export default class GeoSearch {
     // オプション・オブジェクト
     const optionObj = {
       enableHighAccuracy: false, // trueを指定すると精度の高い情報を取得する
-      timeout: 10000 // この秒数以上時間がかかった場合、タイムアウトでエラーに
+      timeout: 10000, // この秒数以上時間がかかった場合、タイムアウトでエラーに
       // maximumAge: 5000 // 次回再び現在位置を取得する時に、ここで指定した秒数だけ今回のデータをキャッシュする。デフォルトは0。
     };
 
@@ -49,7 +47,8 @@ export default class GeoSearch {
 
   // 位置情報の取得に成功した時に実行する関数
   successFunc(position) {
-    let latLng = {};
+    const latLng = {};
+
     latLng.lat = position.coords.latitude;
     latLng.lng = position.coords.longitude;
 
@@ -58,9 +57,9 @@ export default class GeoSearch {
     /* global mapBaseUrl:false */
 
     if (mapBaseUrl.indexOf('?') === -1) { // URLにGETパラメータが存在しない場合
-      mapUrl = mapBaseUrl + '?cplt=' + latLng.lat + '&cpln=' + latLng.lng;
+      mapUrl = `${mapBaseUrl}?cplt=${latLng.lat}&cpln=${latLng.lng}`;
     } else { // URLにGETパラメータが存在する場合
-      mapUrl = mapBaseUrl + '&cplt=' + latLng.lat + '&cpln=' + latLng.lng;
+      mapUrl = `${mapBaseUrl}&cplt=${latLng.lat}&cpln=${latLng.lng}`;
     }
 
     // 生成したURLに遷移させる
@@ -74,7 +73,7 @@ export default class GeoSearch {
       0: '位置情報が取得できませんでした。', // 原因不明のエラー
       1: '位置情報が取得できませんでした。ご利用の端末の設定をご確認ください。', // 端末の設定で、もしくはこのページに対して、位置情報の取得が拒否されている
       2: '位置情報が取得できませんでした。電波状況やご利用の端末の設定をご確認ください。', // 電波または端末の設定の問題
-      3: '位置情報が取得できませんでした。' // タイムアウト
+      3: '位置情報が取得できませんでした。', // タイムアウト
     };
 
     // エラーコードに合わせたエラー内容をアラート表示
