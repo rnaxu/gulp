@@ -96,7 +96,7 @@ gulp.task('sprite', function () {
     }));
   spriteData.img.pipe(gulp.dest(path.img_src));
   spriteData.css.pipe(replace(/.png/g, '.png' + '?revision=' + timestamp))
-    .pipe(gulp.dest(path.css_src + 'setting/var/'))
+    .pipe(gulp.dest(path.css_src + 'setting/'))
     .pipe(size({
       title: 'size : sprite'
     }));

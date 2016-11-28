@@ -3,10 +3,9 @@
 /*
  * setting - 変数宣言、mixinなど
  */
-@import "setting/var/color";
-@import "setting/var/font";
-@import "setting/var/sprite-common";
-@import "setting/mixin/sprite";
+@import "setting/var";
+@import "setting/sprite-common";
+@import "setting/mixin";
 
 /*
  * base - リセット・デフォルトスタイル定義

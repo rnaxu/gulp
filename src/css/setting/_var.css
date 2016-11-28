@@ -4,4 +4,10 @@
 $font-family-default: Meiryo, "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", Osaka, Arial, Sans-serif;
 
 /* font-size */
-$font-size-base: 14px;
+$font-size-root: 14px;
+$font-size-default: 1rem;
+
+/* color */
+$color-default: #212121;
+$color-link: #B6B6B6;
+$color-light-gray: #eee;
