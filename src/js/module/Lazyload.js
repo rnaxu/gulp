@@ -3,9 +3,13 @@
  */
 
 export default class Lazyload {
+  constructor($lazy) {
+    this.$lazy = $lazy;
+  }
+
   // イベントをセット
   setLazyload() {
-    $('.js-lazy').lazyload({
+    this.$lazy.lazyload({
       // effect: 'fadeIn',
       threshold: 300,
       // load: function(){

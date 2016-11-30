@@ -46,7 +46,7 @@ export default class GeoSearch {
   }
 
   // 位置情報の取得に成功した時に実行する関数
-  successFunc(position) {
+  static successFunc(position) {
     const latLng = {};
 
     latLng.lat = position.coords.latitude;
@@ -67,7 +67,7 @@ export default class GeoSearch {
   }
 
   // 位置情報の取得に失敗した時に実行する関数
-  errorFunc(error) {
+  static errorFunc(error) {
     // エラーコードのメッセージを定義
     const errorMessage = {
       0: '位置情報が取得できませんでした。', // 原因不明のエラー

@@ -275,7 +275,7 @@ gulp.task('eslint', function () {
       errorHandler: notify.onError('<%= error.message %>')
     }))
     .pipe(eslint())
-    .pipe(eslint.format('node_modules/eslint-friendly-formatter'));
+    .pipe(eslint.format());
     // .pipe(eslint.failAfterError());
 });
 

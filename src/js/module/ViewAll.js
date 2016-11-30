@@ -3,9 +3,13 @@
  */
 
 export default class ViewAll {
+  constructor($viewAll) {
+    this.$viewAll = $viewAll;
+  }
+
   // イベントをセット
   setViewAll() {
-    $('.js-viewAll').on('click', (e) => {
+    this.$viewAll.on('click', (e) => {
       const $this = $(e.currentTarget);
 
       $this.siblings('.js-viewItem').fadeIn();

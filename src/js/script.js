@@ -10,11 +10,11 @@ import ViewAll from './module/ViewAll';
 import Accordion from './module/Accordion';
 
 (() => {
-  const lazyload = new Lazyload();
+  const lazyload = new Lazyload($('.js-lazy'));
   const userAgent = new UserAgent();
   const overflowScroll = new OverflowScroll();
   const geoSearch = new GeoSearch($('.js-geoSearch'));
-  const viewAll = new ViewAll();
+  const viewAll = new ViewAll($('.js-viewAll'));
   const accordion = new Accordion($('.js-listHeader'), '.js-listGroup');
 
   // 遅延ロード
