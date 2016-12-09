@@ -22,10 +22,10 @@ category: block/searchLink
   padding: 20px 16px 16px;
   text-align: center;
   &__main {
-    font-size: 19px;
+    font-size: $font-size-xxl;
     font-weight: bold;
   }
   &__sub {
-    font-size: 13px;
+    font-size: $font-size-s;
   }
 }

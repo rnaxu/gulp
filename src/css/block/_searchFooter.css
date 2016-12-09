@@ -3,7 +3,7 @@
 .searchFooter {
   padding-bottom: 39px;
   &__headline {
-    font-size: 16px;
+    font-size: $font-size-l;
     font-weight: bold;
     color: #727272;
     text-align: center;

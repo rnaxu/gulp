@@ -52,7 +52,7 @@ category: block/tile
     }
   }
   &__title {
-    font-size: 17px;
+    font-size: $font-size-xl;
     color: #fff;
     font-weight: bold;
   }

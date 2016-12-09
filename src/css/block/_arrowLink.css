@@ -41,7 +41,6 @@ category: block/arrowLink
     margin: auto;
   }
   &__headline {
-    font-size: 14px;
     line-height: 1.5;
   }
 }

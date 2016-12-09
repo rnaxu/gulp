@@ -62,7 +62,7 @@ category: block/media
     margin-bottom: 4px;
   }
   &__info {
-    font-size: 10px;
+    font-size: $font-size-xxxs;
     color: #707070;
   }
 }
