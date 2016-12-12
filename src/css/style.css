@@ -14,25 +14,25 @@
 @import "base/default";
 
 /*
- * block - BEMのBlock
+ * module - BEMのBlock単位
  */
-@import "block/arrowLink";
-@import "block/button";
-@import "block/card";
-@import "block/header";
-@import "block/headline";
-@import "block/ic";
-@import "block/list";
-@import "block/media";
-@import "block/panel";
-@import "block/searchFooter";
-@import "block/searchLink";
-@import "block/section";
-@import "block/simpleButton";
-@import "block/slider";
-@import "block/tile";
-@import "block/title";
-@import "block/footer";
+@import "module/arrowLink";
+@import "module/button";
+@import "module/card";
+@import "module/header";
+@import "module/headline";
+@import "module/ic";
+@import "module/list";
+@import "module/media";
+@import "module/panel";
+@import "module/searchFooter";
+@import "module/searchLink";
+@import "module/section";
+@import "module/simpleButton";
+@import "module/slider";
+@import "module/tile";
+@import "module/title";
+@import "module/footer";
 
 /*
  * utility - helperなど
