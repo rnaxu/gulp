@@ -12,12 +12,12 @@ $font-size-xxl: 1.35714rem; /* 19px */
 $font-size-xl: 1.21429rem; /* 17px */
 $font-size-l: 1.14286rem; /* 16px */
 $font-size-m: 1.07142rem; /* 15px */
-$font-size-s: 0.92857rem; /* 13px */
-$font-size-xs: 0.85714rem; /* 12px */
-$font-size-xxs: 0.78571rem; /* 11px */
-$font-size-xxxs: 0.71429rem; /* 10px */
+$font-size-s: .92857rem; /* 13px */
+$font-size-xs: .85714rem; /* 12px */
+$font-size-xxs: .78571rem; /* 11px */
+$font-size-xxxs: .71429rem; /* 10px */
 
 /* color */
 $color-default: #212121;
-$color-link: #B6B6B6;
+$color-link: #b6b6b6;
 $color-light-gray: #eee;

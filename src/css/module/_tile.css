@@ -33,9 +33,9 @@ category: module/tile
 
 .tile {
   display: flex;
-  background-color: #0097A7;
+  background-color: #0097a7;
   + .tile {
-    border-top: solid 1px #B2EBF2;
+    border-top: solid 1px #b2ebf2;
   }
   &__item {
     display: flex;

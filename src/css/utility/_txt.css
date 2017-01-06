@@ -33,6 +33,7 @@
   text-align: center;
 }
 
+
 /* 文字省略 */
 .txt-ellipsis { /* 1行 */
   overflow: hidden;

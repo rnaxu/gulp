@@ -34,19 +34,19 @@ category: module/ic
   }
   &--eki {
     padding-left: calc(12px + 10px);
-    &:before {
+    &::before {
       @mixin sprite $eki;
     }
   }
   &--area {
     padding-left: calc(11px + 10px);
-    &:before {
+    &::before {
       @mixin sprite $area;
     }
   }
   &--spot {
     padding-left: calc(14px + 10px);
-    &:before {
+    &::before {
       @mixin sprite $spot;
     }
   }
@@ -55,8 +55,8 @@ category: module/ic
 /* 要素自体でアイコンを表示 */
 .ic {
   display: block;
-  /*&--imadake {
+  /* &--imadake {
     @mixin sprite $imadake;
     margin-right: 16px;
-  }*/
+  } */
 }

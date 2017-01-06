@@ -19,7 +19,7 @@
  *
  * ** スタイルガイド
  *
- * $ gulp style
+ * $ gulp guide
  *
  * ---------------------------------------------------------------------- */
 
@@ -119,7 +119,7 @@ gulp.task('image', function() {
  */
 // aigis
 var aigis = require('gulp-aigis');
-gulp.task('style', function() {
+gulp.task('guide', function() {
   return gulp.src('aigis_config.yml')
     .pipe(aigis());
 });
@@ -209,6 +209,23 @@ gulp.task('cssnano', function () {
     .pipe(size({
       title: 'size : css'
     }));
+});
+
+// stylelint
+var stylelint = require('stylelint');
+var reporter = require('postcss-reporter');
+var scss = require('postcss-scss');
+gulp.task('stylelint', function() {
+  return gulp.src(path.css_src + '**/*.css')
+    .pipe(plumber({
+      errorHandler: notify.onError('<%= error.message %>')
+    }))
+    .pipe(postcss([
+      stylelint(),
+      reporter({
+        clearAllMessages: true
+      })
+    ], {syntax: scss}));
 });
 
 
@@ -337,7 +354,7 @@ gulp.task('build:html', function () {
 
 // build:css
 gulp.task('build:css', function () {
-  gulpSequence('precss', 'cssnano')();
+  gulpSequence('stylelint', 'precss', 'cssnano')();
 });
 
 // build:js

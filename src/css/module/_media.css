@@ -28,7 +28,8 @@ category: module/media
   border-top: solid 1px #e5e5e5;
   min-height: 120px;
   background-color: #fff;
-  + .simpleButton, + .arrowLink {
+  + .simpleButton,
+  + .arrowLink {
     border-top: solid 1px #e5e5e5;
   }
   &__thumbnail {
@@ -46,7 +47,7 @@ category: module/media
     top: 11px;
     left: 8px;
     background-color: #fff;
-    color: #0097A7;
+    color: #0097a7;
     text-align: center;
     line-height: 25px;
   }
