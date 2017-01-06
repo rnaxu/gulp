@@ -57,7 +57,10 @@ var path = {
  */
 var del = require('del');
 gulp.task('del', function () {
-  return del(path.dist);
+  return del([
+    path.dist,
+    path.guide + 'dist/'
+  ]);
 });
 
 
