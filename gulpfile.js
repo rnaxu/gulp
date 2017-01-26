@@ -150,7 +150,9 @@ gulp.task('prettify', function() {
 var postcss = require('gulp-postcss');
 var precss = require('precss');
 var calc = require('postcss-calc');
+var doiuse = require('doiuse');
 var autoprefixer = require('autoprefixer');
+var browsers = ['iOS >= 7', 'Android >= 4.1'];
 gulp.task('precss', function () {
   return gulp.src(path.css_src + '*.css')
     .pipe(plumber({
@@ -159,8 +161,11 @@ gulp.task('precss', function () {
     .pipe(postcss([
       precss(),
       calc(),
+      doiuse({
+        browsers: browsers
+      }),
       autoprefixer({
-        browsers: ['iOS >= 4.3', 'Android >= 2.3'],
+        browsers: browsers,
         cascade: false
       })
     ]))

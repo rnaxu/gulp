@@ -18,6 +18,7 @@
     "browser-sync": "^2.11.2",
     "browserify": "",
     "cssnano": "^3.5.2",
+    "doiuse": "^2.5.0",
     "es6-promise": "^3.2.1",
     "eslint": "^3.11.0",
     "eslint-config-airbnb-base": "^10.0.1",
